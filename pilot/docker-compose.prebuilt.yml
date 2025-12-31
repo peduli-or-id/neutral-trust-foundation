@@ -1,33 +1,60 @@
 version: "3.9"
 
+version: "3.9"
+
+name: ntf-pilot-simulation
+
+networks:
+  ntf-internal:
+    driver: bridge
+    internal: true
+
 services:
 
   indicator-generator:
-    image: peduli/ntf-indicator-generator:latest
-    container_name: ntf_indicator_gen
-    environment:
-      MODE: "synthetic"
-      INTERVAL: "30-120"
-      PROFILE: "3gpp-aligned"
+    build:
+      context: ./indicator-generator
+      dockerfile: Dockerfile
+    image: indicator-generator:local
+    container_name: ntf-indicator-generator
     networks:
-      - ntf-net
+      - ntf-internal
+    environment:
+      - SIMULATION_MODE=synthetic
+      - DATA_SCOPE=non-operational
+    restart: unless-stopped
 
-  nbo-engine:
-    image: peduli/ntf-nbo-engine:latest
-    container_name: ntf_nbo
+  behavior-oracle:
+    build:
+      context: ./nbo-engine
+      dockerfile: Dockerfile
+    image: nbo-engine:local
+    container_name: ntf-nbo-engine
     depends_on:
       - indicator-generator
     networks:
-      - ntf-net
+      - ntf-internal
+    environment:
+      - ORACLE_MODE=conceptual
+      - INPUT_SOURCE=synthetic
+    restart: unless-stopped
 
   silent-validator:
-    image: peduli/ntf-silent-validator:latest
-    container_name: ntf_validator
+    build:
+      context: ./silent-validator
+      dockerfile: Dockerfile
+    image: silent-validator:local
+    container_name: ntf-silent-validator
     depends_on:
-      - nbo-engine
+      - behavior-oracle
     networks:
-      - ntf-net
+      - ntf-internal
+    environment:
+      - VALIDATION_MODE=passive
+      - ENFORCEMENT=false
+    restart: unless-stopped
 
-networks:
-  ntf-net:
-    driver: bridge
+
+
+
+
