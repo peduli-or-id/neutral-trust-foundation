@@ -1,0 +1,1 @@
+A Neutral Trust Foundation is a non-operational entity that maintains shared trust primitives for inter-domain network behavior validation without accessing user data or interfering with network operations.
