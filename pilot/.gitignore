@@ -1,4 +1,9 @@
-*.pyc
-__pycache__/
-logs/
+# Environment
 .env
+
+# Python
+__pycache__/
+*.pyc
+
+# Logs
+logs/
