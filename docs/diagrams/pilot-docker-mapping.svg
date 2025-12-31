@@ -1,0 +1,37 @@
+<svg width="1100" height="520" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .host { fill:#f4f6f8; stroke:#333; stroke-width:1.5; }
+    .container { fill:#e8f5e9; stroke:#2e7d32; stroke-width:1.5; }
+    .title { font-size:14px; font-weight:bold; }
+    .text { font-size:12px; }
+    .arrow { stroke:#333; stroke-width:1.5; marker-end:url(#arrowhead); }
+  </style>
+
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7"
+      refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333"/>
+    </marker>
+  </defs>
+
+  <rect x="40" y="40" width="1020" height="440" class="host"/>
+  <text x="50" y="70" class="title">Docker Host – NTF Pilot Environment</text>
+
+  <rect x="100" y="150" width="260" height="120" class="container"/>
+  <text x="110" y="175" class="title">indicator-generator</text>
+  <text x="110" y="200" class="text">Synthetic behavior data</text>
+  <text x="110" y="220" class="text">3GPP-aligned abstraction</text>
+
+  <rect x="420" y="150" width="260" height="120" class="container"/>
+  <text x="430" y="175" class="title">nbo-engine</text>
+  <text x="430" y="200" class="text">Behavior evaluation</text>
+  <text x="430" y="220" class="text">Assertion generation</text>
+
+  <rect x="740" y="150" width="260" height="120" class="container"/>
+  <text x="750" y="175" class="title">silent-validator</text>
+  <text x="750" y="200" class="text">Consensus simulation</text>
+  <text x="750" y="220" class="text">Trust anchoring</text>
+
+  <line x1="360" y1="210" x2="420" y2="210" class="arrow"/>
+  <line x1="680" y1="210" x2="740" y2="210" class="arrow"/>
+</svg>
