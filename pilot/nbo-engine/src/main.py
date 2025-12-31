@@ -1,15 +1,14 @@
-import sys
-import json
+import sys, json
 
-# NBO engine stub – reads JSON from STDIN
 for line in sys.stdin:
     try:
-        indicator = json.loads(line.strip())
-        nbo_output = {
-            "assertion_type": "behavior_deviation_statement",
-            "indicator": indicator,
-            "confidence_score": indicator.get("confidence", "synthetic")
+        i = json.loads(line)
+        assertion = {
+            "assertion_type": "network_behavior_assertion",
+            "behavior_class": i["indicator_type"],
+            "deviation_level": "low" if i["stability_score"] > 0.8 else "moderate",
+            "confidence_score": i["stability_score"]
         }
-        print(json.dumps(nbo_output))
+        print(json.dumps(assertion))
     except:
-        continue
+        pass
