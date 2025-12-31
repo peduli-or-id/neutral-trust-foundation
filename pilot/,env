@@ -25,3 +25,12 @@ OUTPUT_FORMAT=json
 # ---------------------------------------------
 # Docker Networks
 NTF_NETWORK=ntf-net
+
+
+##################Penjelasan singkat field .env:
+# INDICATOR_*: mengatur behavior generator
+# NBO_*: mengatur core behavior evaluation
+# VALIDATOR_*: threshold trust
+# LOG_LEVEL, OUTPUT_FORMAT: standar observability
+# NTF_NETWORK: nama network Docker
+################################################
