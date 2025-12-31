@@ -1,0 +1,55 @@
+```svg
+<svg width="1200" height="680" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .domain { fill:#f5f5f5; stroke:#333; stroke-width:1.5; }
+    .trust { fill:#eef6ff; stroke:#1e90ff; stroke-width:1.5; }
+    .gov { fill:#fff4e5; stroke:#cc8400; stroke-width:1.5; }
+    .title { font-size:15px; font-weight:bold; }
+    .text { font-size:12px; }
+    .arrow { stroke:#333; stroke-width:1.5; marker-end:url(#arrowhead); }
+  </style>
+
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7"
+      refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333"/>
+    </marker>
+  </defs>
+
+  <!-- Operator Domain -->
+  <rect x="40" y="80" width="300" height="220" class="domain"/>
+  <text x="50" y="105" class="title">Operator Network Domain</text>
+  <text x="60" y="135" class="text">• Access / Core / Edge</text>
+  <text x="60" y="155" class="text">• 3GPP-compliant functions</text>
+  <text x="60" y="175" class="text">• No data export</text>
+
+  <rect x="70" y="215" width="240" height="60" class="domain"/>
+  <text x="80" y="250" class="text">Behavior Indicator Extractor</text>
+
+  <!-- NBO -->
+  <rect x="440" y="80" width="320" height="220" class="trust"/>
+  <text x="450" y="105" class="title">Network Behavior Oracle (NBO)</text>
+  <text x="460" y="135" class="text">• Behavior normalization</text>
+  <text x="460" y="155" class="text">• Deviation evaluation</text>
+  <text x="460" y="175" class="text">• ZK-style assertions</text>
+  <text x="460" y="195" class="text">• No enforcement</text>
+
+  <!-- Silent Validator -->
+  <rect x="840" y="80" width="300" height="220" class="trust"/>
+  <text x="850" y="105" class="title">Silent Validator Network</text>
+  <text x="860" y="135" class="text">• Multi-party consensus</text>
+  <text x="860" y="155" class="text">• Evidence anchoring</text>
+  <text x="860" y="175" class="text">• Neutral trust reference</text>
+
+  <!-- Governance -->
+  <rect x="300" y="360" width="600" height="100" class="gov"/>
+  <text x="310" y="390" class="title">Neutral Trust Foundation (Governance)</text>
+  <text x="320" y="420" class="text">
+    Charter • Ethics • Compliance • Standards Alignment
+  </text>
+
+  <!-- Arrows -->
+  <line x1="310" y1="245" x2="440" y2="190" class="arrow"/>
+  <line x1="760" y1="190" x2="840" y2="190" class="arrow"/>
+</svg>
+```
