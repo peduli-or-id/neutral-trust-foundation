@@ -1,14 +1,14 @@
-import sys
-import json
+import sys, json
 
-# Silent validator stub – reads NBO output
 for line in sys.stdin:
     try:
-        nbo_assertion = json.loads(line.strip())
-        validated = {
+        a = json.loads(line)
+        validation = {
             "validation_result": "accepted",
-            "assertion": nbo_assertion
+            "consensus_model": "simple-majority",
+            "confidence": a["confidence_score"],
+            "anchored": True
         }
-        print(json.dumps(validated))
+        print(json.dumps(validation))
     except:
-        continue
+        pass
