@@ -191,6 +191,15 @@ This project:
 All content is provided for **research and pilot demonstration purposes only**.
 
 ---
+## Standards Alignment
+
+Neutral Trust Foundation is designed to be **aligned with existing global
+telecommunication and privacy standards**, without claiming normative authority.
+
+A detailed standards alignment analysis is available here:
+
+📄 [Standards Alignment Matrix](standards/standards-alignment-matrix.md)
+---
 
 ## License
 
