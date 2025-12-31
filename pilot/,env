@@ -1,0 +1,27 @@
+# Environment configurations for NTF pilot
+
+# ---------------------------------------------
+# Indicator Generator
+INDICATOR_MODE=synthetic
+INDICATOR_INTERVAL_MIN=20
+INDICATOR_INTERVAL_MAX=90
+INDICATOR_PROFILE=3gpp-aligned
+
+# ---------------------------------------------
+# NBO Engine
+NBO_EVAL_MODEL=baseline-statistical
+NBO_TIME_WINDOW=300s
+
+# ---------------------------------------------
+# Silent Validator
+VALIDATOR_QUORUM=3
+VALIDATOR_CONFIDENCE_THRESHOLD=0.75
+
+# ---------------------------------------------
+# Logging / Output
+LOG_LEVEL=info
+OUTPUT_FORMAT=json
+
+# ---------------------------------------------
+# Docker Networks
+NTF_NETWORK=ntf-net
