@@ -1,0 +1,33 @@
+version: "3.9"
+
+services:
+
+  indicator-generator:
+    build: ./indicator-generator
+    container_name: ntf_indicator_gen_src
+    environment:
+      MODE: "synthetic"
+      INTERVAL: "20-90"
+      PROFILE: "3gpp-aligned"
+    networks:
+      - ntf-net
+
+  nbo-engine:
+    build: ./nbo-engine
+    container_name: ntf_nbo_src
+    depends_on:
+      - indicator-generator
+    networks:
+      - ntf-net
+
+  silent-validator:
+    build: ./silent-validator
+    container_name: ntf_validator_src
+    depends_on:
+      - nbo-engine
+    networks:
+      - ntf-net
+
+networks:
+  ntf-net:
+    driver: bridge
