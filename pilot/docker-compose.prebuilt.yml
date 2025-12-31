@@ -1,0 +1,33 @@
+version: "3.9"
+
+services:
+
+  indicator-generator:
+    image: peduli/ntf-indicator-generator:latest
+    container_name: ntf_indicator_gen
+    environment:
+      MODE: "synthetic"
+      INTERVAL: "30-120"
+      PROFILE: "3gpp-aligned"
+    networks:
+      - ntf-net
+
+  nbo-engine:
+    image: peduli/ntf-nbo-engine:latest
+    container_name: ntf_nbo
+    depends_on:
+      - indicator-generator
+    networks:
+      - ntf-net
+
+  silent-validator:
+    image: peduli/ntf-silent-validator:latest
+    container_name: ntf_validator
+    depends_on:
+      - nbo-engine
+    networks:
+      - ntf-net
+
+networks:
+  ntf-net:
+    driver: bridge
