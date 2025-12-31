@@ -1,111 +1,53 @@
 # ============================================================
 # Neutral Trust Foundation (NTF)
-# Pilot Environment Configuration
+# Pilot Environment Configuration (LOCKED)
 # ============================================================
-# IMPORTANT:
-# - This file contains NO sensitive data
-# - No personal data
-# - No network identifiers
-# - Safe to use for public pilot
+# This file is intentionally NON-SENSITIVE.
+# Safe for public pilot, demo, and regulator review.
 # ============================================================
 
-
-# ------------------------------------------------------------
-# Synthetic Indicator Generator Configuration
-# ------------------------------------------------------------
-
-# Operating mode: MUST be 'synthetic' for pilot
+# -------------------------
+# Indicator Generator
+# -------------------------
 INDICATOR_MODE=synthetic
-
-# Interval range (seconds) between indicator emissions
-# Randomized to simulate natural behavior variance
+INDICATOR_PROFILE=3gpp-aligned
 INDICATOR_INTERVAL_MIN=20
 INDICATOR_INTERVAL_MAX=90
-
-# Indicator profile (aligned with 3GPP behavioral concepts)
-# Options: 3gpp-aligned | baseline | stress-test
-INDICATOR_PROFILE=3gpp-aligned
-
-# Aggregation window used by generator (conceptual)
 INDICATOR_AGGREGATION_WINDOW=300s
 
-
-# ------------------------------------------------------------
-# Network Behavior Oracle (NBO) Configuration
-# ------------------------------------------------------------
-
-# Behavior evaluation model
-# baseline-statistical is deterministic and audit-friendly
+# -------------------------
+# Network Behavior Oracle
+# -------------------------
 NBO_EVALUATION_MODEL=baseline-statistical
-
-# Time window used for behavior vector construction
 NBO_TIME_WINDOW=300s
-
-# Threshold above which behavior is considered deviating
-# NOTE: This does NOT trigger enforcement
 NBO_DEVIATION_THRESHOLD=0.75
-
-# Confidence weighting mode
-# static = fixed weighting
-# adaptive = simulation only
 NBO_CONFIDENCE_MODE=static
 
-
-# ------------------------------------------------------------
-# Silent Validator Configuration
-# ------------------------------------------------------------
-
-# Number of validators assumed in pilot consensus simulation
+# -------------------------
+# Silent Validator
+# -------------------------
 VALIDATOR_QUORUM_SIZE=3
-
-# Minimum confidence score for accepting a behavior assertion
 VALIDATOR_CONFIDENCE_THRESHOLD=0.75
-
-# Consensus model (simulation-only)
-# Options: simple-majority | weighted-consensus
 VALIDATOR_CONSENSUS_MODEL=simple-majority
-
-# Enable or disable anchoring simulation
-# Anchoring is logical only (no blockchain dependency)
 VALIDATOR_ANCHORING_ENABLED=true
 
-
-# ------------------------------------------------------------
-# Logging & Observability
-# ------------------------------------------------------------
-
-# Log level: debug | info | warning | error
+# -------------------------
+# Observability
+# -------------------------
 LOG_LEVEL=info
-
-# Output format for logs and artifacts
-# json is required for audit replay
 OUTPUT_FORMAT=json
-
-# Enable deterministic output for reproducibility
 DETERMINISTIC_MODE=false
 
-
-# ------------------------------------------------------------
-# Docker / Networking
-# ------------------------------------------------------------
-
-# Docker network name used by all pilot services
+# -------------------------
+# Docker
+# -------------------------
 NTF_DOCKER_NETWORK=ntf-net
-
-# Container timezone (for reproducible timestamps)
 TZ=UTC
 
-
-# ------------------------------------------------------------
-# Compliance Flags (Documentation & Guardrails)
-# ------------------------------------------------------------
-
-# Explicit compliance declarations (informational)
+# -------------------------
+# Compliance Declaration
+# -------------------------
 COMPLIANCE_3GPP=true
 COMPLIANCE_GDPR=true
-COMPLIANCE_NO_TRAFFIC=true
 COMPLIANCE_NO_PII=true
-
-# ============================================================
-# End of NTF Pilot Configuration
-# ============================================================
+COMPLIANCE_NO_TRAFFIC=true
